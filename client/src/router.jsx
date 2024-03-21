@@ -26,13 +26,21 @@ export const router = createBrowserRouter([
             signal,
           }).then((res) => {
             if (res.status === 200) return res.json();
-            throw redirect("/pages/users");
+            throw redirect("/pages/users"); //to change
           });
         },
       },
       {
         path: "/pages/users",
         element: <Users />,
+        loader: ({ request: { signal } }) => {
+          return fetch("http://localhost:3000/users", {
+            signal,
+          }).then((res) => {
+            if (res.status === 200) return res.json();
+            throw redirect("/pages/users"); //to change
+          });
+        },
       },
       {
         path: "/pages/todos",
@@ -42,7 +50,7 @@ export const router = createBrowserRouter([
             signal,
           }).then((res) => {
             if (res.status === 200) return res.json();
-            throw redirect("/pages/users");
+            throw redirect("/pages/users"); //to change
           });
         },
       },
