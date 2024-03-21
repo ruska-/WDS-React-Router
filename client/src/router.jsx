@@ -1,14 +1,10 @@
-import {
-  Navigate,
-  Outlet,
-  createBrowserRouter,
-  redirect,
-} from "react-router-dom";
-import { Navbar } from "./Navbar";
+import { Navigate, createBrowserRouter, redirect } from "react-router-dom";
 import { Posts } from "./pages/Posts";
+import { Post } from "./pages/Post";
 import { Users } from "./pages/Users";
 import { Todos } from "./pages/Todos";
 import { NavLayout } from "./NavLayout";
+import { User } from "./pages/User";
 
 export const router = createBrowserRouter([
   {
@@ -16,44 +12,43 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "*",
-        element: <Navigate to="/pages/posts" />,
+        element: <Navigate to="posts" />,
       },
       {
-        path: "/pages/posts",
+        path: "posts",
         element: <Posts />,
         loader: ({ request: { signal } }) => {
           return fetch("http://localhost:3000/posts", {
             signal,
           }).then((res) => {
             if (res.status === 200) return res.json();
-            throw redirect("/pages/users"); //to change
           });
         },
       },
       {
-        path: "/pages/users",
+        path: "users",
         element: <Users />,
         loader: ({ request: { signal } }) => {
           return fetch("http://localhost:3000/users", {
             signal,
           }).then((res) => {
             if (res.status === 200) return res.json();
-            throw redirect("/pages/users"); //to change
           });
         },
       },
       {
-        path: "/pages/todos",
+        path: "todos",
         element: <Todos />,
         loader: ({ request: { signal } }) => {
           return fetch("http://localhost:3000/todos", {
             signal,
           }).then((res) => {
             if (res.status === 200) return res.json();
-            throw redirect("/pages/users"); //to change
           });
         },
       },
     ],
   },
+  { path: "post", element: <Post /> },
+  { path: "user", element: <User /> },
 ]);

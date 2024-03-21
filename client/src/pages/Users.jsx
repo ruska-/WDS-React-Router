@@ -4,7 +4,6 @@ export function Users() {
   const usersArray = useLoaderData();
   return (
     <>
-      <h1>Users</h1>
       <div className="container">
         <h1 className="page-title">Users</h1>
         <div className="card-grid">

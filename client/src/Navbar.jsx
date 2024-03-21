@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./styles.css"
+import "./styles.css";
 
 export function Navbar() {
   return (
@@ -8,13 +8,13 @@ export function Navbar() {
         <div className="nav-text-large">My App</div>
         <ul className="nav-list">
           <li>
-            <Link to="/pages/posts">Posts</Link>
+            <Link to="posts">Posts</Link>
           </li>
           <li>
-            <Link to="/pages/users">Users</Link>
+            <Link to="users">Users</Link>
           </li>
           <li>
-            <Link to="/pages/todos">Todos</Link>
+            <Link to="todos">Todos</Link>
           </li>
         </ul>
       </nav>
