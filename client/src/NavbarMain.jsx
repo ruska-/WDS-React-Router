@@ -1,4 +1,7 @@
-export function Navbar() {
+import { Link } from "react-router-dom";
+import "./styles.css"
+
+export function NavbarMain() {
   return (
     <>
       <nav className="top-nav">
