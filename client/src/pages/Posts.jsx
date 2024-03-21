@@ -5,9 +5,9 @@ export function Posts() {
 
   return (
     <>
-      <div class="container">
-        <h1 class="page-title">Posts</h1>
-        <div class="card-grid">
+      <div className="container">
+        <h1 className="page-title">Posts</h1>
+        <div className="card-grid">
           {postsArray.map((post) => (
             <div className="card" key={post.id}>
               <div className="card-header">{post.title}</div>
@@ -15,14 +15,13 @@ export function Posts() {
                 <div className="card-preview-text">{post.body}</div>
               </div>
               <div className="card-footer">
-                <Link className="btn" to="/component/post">
+                <Link className="btn" to={post.id.toString()}>
                   View
                 </Link>
               </div>
             </div>
           ))}
         </div>
-        /
       </div>
     </>
   );
