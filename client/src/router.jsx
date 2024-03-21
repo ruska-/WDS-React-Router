@@ -1,4 +1,9 @@
-import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
+import {
+  Navigate,
+  Outlet,
+  createBrowserRouter,
+  redirect,
+} from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { Posts } from "./pages/Posts";
 import { Users } from "./pages/Users";
@@ -16,6 +21,14 @@ export const router = createBrowserRouter([
       {
         path: "/pages/posts",
         element: <Posts />,
+        loader: ({ request: { signal } }) => {
+          return fetch("http://localhost:3000/posts", {
+            signal,
+          }).then((res) => {
+            if (res.status === 200) return res.json();
+            throw redirect("/pages/users");
+          });
+        },
       },
       {
         path: "/pages/users",
@@ -26,9 +39,5 @@ export const router = createBrowserRouter([
         element: <Todos />,
       },
     ],
-  },
-  {
-    path: "/pages/posts",
-    element: <Posts />,
   },
 ]);
