@@ -1,14 +1,34 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
-import { NavbarMain } from "./NavbarMain";
+import { Navigate, Outlet, createBrowserRouter } from "react-router-dom";
+import { Navbar } from "./Navbar";
+import { Posts } from "./pages/Posts";
+import { Users } from "./pages/Users";
+import { Todos } from "./pages/Todos";
+import { NavLayout } from "./NavLayout";
 
 export const router = createBrowserRouter([
-    {
-        element: <NavbarMain />,
-        children: [
-            {
-                path: "*",
-                element: <Navigate to="posts.html" />
-            }
-        ]
-    }
+  {
+    element: <NavLayout />,
+    children: [
+      {
+        path: "*",
+        element: <Navigate to="/pages/posts" />,
+      },
+      {
+        path: "/pages/posts",
+        element: <Posts />,
+      },
+      {
+        path: "/pages/users",
+        element: <Users />,
+      },
+      {
+        path: "/pages/todos",
+        element: <Todos />,
+      },
+    ],
+  },
+  {
+    path: "/pages/posts",
+    element: <Posts />,
+  },
 ]);

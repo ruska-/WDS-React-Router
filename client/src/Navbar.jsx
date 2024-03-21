@@ -1,20 +1,20 @@
 import { Link } from "react-router-dom";
 import "./styles.css"
 
-export function NavbarMain() {
+export function Navbar() {
   return (
     <>
       <nav className="top-nav">
         <div className="nav-text-large">My App</div>
         <ul className="nav-list">
           <li>
-            <Link to="posts.html">Posts</Link>
+            <Link to="/pages/posts">Posts</Link>
           </li>
           <li>
-            <Link to="users.html">Users</Link>
+            <Link to="/pages/users">Users</Link>
           </li>
           <li>
-            <Link to="todos.html">Todos</Link>
+            <Link to="/pages/todos">Todos</Link>
           </li>
         </ul>
       </nav>
