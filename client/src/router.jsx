@@ -37,6 +37,14 @@ export const router = createBrowserRouter([
       {
         path: "/pages/todos",
         element: <Todos />,
+        loader: ({ request: { signal } }) => {
+          return fetch("http://localhost:3000/todos", {
+            signal,
+          }).then((res) => {
+            if (res.status === 200) return res.json();
+            throw redirect("/pages/users");
+          });
+        },
       },
     ],
   },
