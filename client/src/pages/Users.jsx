@@ -8,7 +8,7 @@ export function Users() {
         <h1 className="page-title">Users</h1>
         <div className="card-grid">
           {usersArray.map((user) => (
-            <div className="card">
+            <div className="card" key={user.id}>
               <div className="card-header">{user.name}</div>
               <div className="card-body">
                 <div>{user.company.name}</div>
