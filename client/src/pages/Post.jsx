@@ -2,7 +2,8 @@ import { Link, useLoaderData } from "react-router-dom";
 
 export function Post() {
   const post = useLoaderData();
-  console.log(post);
+  
+  //TODO Comments and User Name
   return (
     <>
       <div className="container">
@@ -10,7 +11,7 @@ export function Post() {
         <span className="page-subtitle">
           By: <Link to="user.html">Leanne Graham</Link>
         </span>
-        <div>{post.title}</div>
+        <div>{post.body}</div>
         <h3 className="mt-4 mb-2">Comments</h3>
         <div className="card-stack">
           <div className="card">

@@ -16,12 +16,17 @@ export const router = createBrowserRouter([
       {
         path: "posts",
         children: [
-          { index: true, element: <Posts />, loader: ({ request: { signal } }) => {
-            return fetch("http://localhost:3000/posts", {
-              signal,
-            });
-          }, },
           {
+            index: true,
+            element: <Posts />,
+            loader: ({ request: { signal } }) => {
+              return fetch("http://localhost:3000/posts", {
+                signal,
+              });
+            },
+          },
+          {
+            //TODO
             path: ":postId",
             loader: ({ params, request: { signal } }) => {
               return fetch(`http://localhost:3000/posts/${params.postId}`, {
