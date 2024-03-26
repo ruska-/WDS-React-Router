@@ -9,6 +9,7 @@ import { User } from "./pages/User";
 export const router = createBrowserRouter([
   {
     element: <NavLayout />,
+    errorElement: <ErrorBoundary />,
     children: [
       {
         path: "*",
@@ -73,3 +74,10 @@ export const router = createBrowserRouter([
     ],
   },
 ]);
+
+function ErrorBoundary() {
+  let error = useRouteError();
+  console.error(error);
+  // Uncaught ReferenceError: path is not defined
+  return <h1>Error 404!</h1>;
+}

@@ -9,7 +9,7 @@ export function Post() {
       <div className="container">
         <h1 className="page-title">{post.title}</h1>
         <span className="page-subtitle">
-          By: <Link to="user.html">Leanne Graham</Link>
+          By: <Link to="user.html">AUTHOR</Link>
         </span>
         <div>{post.body}</div>
         {/* <h3 className="mt-4 mb-2">Comments</h3>
