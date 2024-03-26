@@ -1,4 +1,9 @@
-import { Navigate, createBrowserRouter, redirect } from "react-router-dom";
+import {
+  Navigate,
+  createBrowserRouter,
+  redirect,
+  useRouteError,
+} from "react-router-dom";
 import { Posts } from "./pages/Posts";
 import { Post } from "./pages/Post";
 import { Users } from "./pages/Users";
@@ -11,10 +16,10 @@ export const router = createBrowserRouter([
     element: <NavLayout />,
     errorElement: <ErrorBoundary />,
     children: [
-      {
-        path: "*",
-        element: <Navigate to="posts" />,
-      },
+      // {
+      //   path: "*",
+      //   element: <Navigate to="posts" />,
+      // },
       {
         path: "posts",
         children: [
@@ -30,12 +35,12 @@ export const router = createBrowserRouter([
           {
             //TODO
             path: ":postId",
+            element: <Post />,
             loader: ({ params, request: { signal } }) => {
               return fetch(`http://localhost:3000/posts/${params.postId}`, {
                 signal,
               });
             },
-            element: <Post />,
           },
         ],
       },
@@ -79,5 +84,10 @@ function ErrorBoundary() {
   let error = useRouteError();
   console.error(error);
   // Uncaught ReferenceError: path is not defined
-  return <h1>Error 404!</h1>;
+  return (
+    <>
+      <NavLayout />
+      <h1>Error 404!</h1>{" "}
+    </>
+  );
 }

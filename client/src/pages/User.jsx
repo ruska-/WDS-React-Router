@@ -6,7 +6,7 @@ export function User() {
     <>
       <div className="container">
         <h1 className="page-title">{user.name}</h1>
-        <div className="page-subtitle">Sincere@april.biz</div>
+        <div className="page-subtitle">{user.email}</div>
         <div>
           <b>Company:</b> {user.company.name}
         </div>

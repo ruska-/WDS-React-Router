@@ -1,5 +1,6 @@
 import { Outlet, useNavigation } from "react-router-dom";
 import { Navbar } from "./Navbar";
+import "./styles.css";
 
 export function NavLayout() {
   const { state } = useNavigation();
@@ -7,7 +8,13 @@ export function NavLayout() {
   return (
     <>
       <Navbar />
-      {state === "loading" ? <h1>Loading...</h1> : <Outlet />}
+      <Layout loading={state === "loading"}>
+        <Outlet />
+      </Layout>
     </>
   );
+}
+
+function Layout({ children, loading }) {
+  return <div className={loading ? "loading-spinner" : ""}>{children}</div>;
 }
