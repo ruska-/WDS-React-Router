@@ -18,7 +18,7 @@ export function User() {
           {user.address.city}, {user.address.zipcode}
         </div>
         {/* TODO POSTS */}
-        <h3 className="mt-4 mb-2">Posts</h3>
+        {/* <h3 className="mt-4 mb-2">Posts</h3>
         <div className="card-grid">
           <div className="card">
             <div className="card-header">
@@ -132,7 +132,7 @@ export function User() {
           <li>qui ullam ratione quibusdam voluptatem quia omnis</li>
           <li>illo expedita consequatur quia in</li>
           <li className="strike-through">quo adipisci enim quam ut ab</li>
-        </ul>
+        </ul> */}
       </div>
     </>
   );

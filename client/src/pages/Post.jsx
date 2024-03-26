@@ -12,7 +12,7 @@ export function Post() {
           By: <Link to="user.html">Leanne Graham</Link>
         </span>
         <div>{post.body}</div>
-        <h3 className="mt-4 mb-2">Comments</h3>
+        {/* <h3 className="mt-4 mb-2">Comments</h3>
         <div className="card-stack">
           <div className="card">
             <div className="card-body">
@@ -55,7 +55,7 @@ export function Post() {
               et
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );
