@@ -16,7 +16,7 @@ export function Users() {
                 <div>{user.email}</div>
               </div>
               <div className="card-footer">
-                <Link className="btn" a="user.html">
+                <Link className="btn" to={user.id.toString()}>
                   View
                 </Link>
               </div>
